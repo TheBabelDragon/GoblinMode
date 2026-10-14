@@ -37,10 +37,15 @@ node --experimental-strip-types --test src/lib/babelpipe/engine.test.ts
 
 SHA-256 is a hash, not a cipher, and a receipt is not a signature. A transliteration collision is not a hash collision. Notes on the hardware schedule are a source reading plus a formula transcription, not a simulated netlist and not a break of SHA-256.
 
-## GitHub Pages
+## GitHub Pages (throughput insurance)
 
 Deployed from [`.github/workflows/static.yml`](.github/workflows/static.yml).
 
-- **Path / base:** `/GoblinMode/` (project Pages site)
-- **Artifact:** `dist/` produced by `vite build --base=/GoblinMode/`
-- **URL:** https://thebabeldragon.github.io/GoblinMode/
+| Item | Value |
+|------|--------|
+| **URL** | https://thebabeldragon.github.io/GoblinMode/ |
+| **Published path** | `docs/` (always contains `index.html`) |
+| **Build** | None — pure static, no npm |
+| **Base** | Project site `/GoblinMode/` |
+
+The full TanStack/Vite SPA remains in-repo for local/dev; Pages is intentionally decoupled so a failed `npm ci` cannot take the site down.

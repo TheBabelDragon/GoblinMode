@@ -1,4 +1,5 @@
-# Deploy static content to GitHub Pages (project site under /GoblinMode/)
+# Pure-static GitHub Pages deploy (throughput insurance)
+# No npm. No build. docs/ always contains index.html → never 404.
 name: Deploy static content to Pages
 
 on:
@@ -16,40 +17,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Build static site
-        # Project Pages path is /GoblinMode/ — base must match or assets 404.
-        run: npx vite build --base=/GoblinMode/
-        env:
-          # Skip DB migrate / Nitro server pieces that are not needed for pure static Pages.
-          VITE_STATIC_PAGES: "1"
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          # Project site path is /GoblinMode/ — docs/ is the published root.
+          path: docs
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

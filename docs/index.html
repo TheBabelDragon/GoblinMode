@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoblinMode — BabelPipe Lab</title>
+  <meta name="description" content="Adversarial lab for BabelForge: BabelPipe receipts and the Goblin Lab bench. Pinned to 387d8df." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0c0e12;
+      --fg: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #7ee787;
+      --border: #30363d;
+      --card: #161b22;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.35rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    p { color: var(--muted); margin: 0 0 1rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 1.25rem 0;
+    }
+    .card h2 {
+      font-size: 0.95rem;
+      margin: 0 0 0.5rem;
+      color: var(--fg);
+    }
+    code, .sha {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: #21262d;
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+    ul { margin: 0.4rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    li { margin: 0.25rem 0; }
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="tag">GitHub Pages · static</span>
+    <h1>GoblinMode</h1>
+    <p>
+      Adversarial lab for
+      <a href="https://github.com/TheBabelDragon/BabelForge">BabelForge</a>
+      at <span class="sha">387d8df</span>.
+      BabelPipe receipts · browser bench · not a patch to BabelForge.
+    </p>
+
+    <div class="card">
+      <h2>Live path</h2>
+      <p style="margin:0">
+        This site is published at
+        <a href="https://thebabeldragon.github.io/GoblinMode/">thebabeldragon.github.io/GoblinMode/</a>
+        from the <code>docs/</code> folder (zero-dependency static deploy).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Repo</h2>
+      <ul>
+        <li><a href="https://github.com/TheBabelDragon/GoblinMode">github.com/TheBabelDragon/GoblinMode</a></li>
+        <li><a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/README.md">README</a></li>
+        <li>Pinned BabelForge SHA: <span class="sha">387d8dfbfe70ac7790e4ca73354aa1fbc6661d95</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>What this is not</h2>
+      <p style="margin:0">
+        SHA-256 is a hash, not a cipher. A receipt is not a signature.
+        A transliteration collision is not a hash collision.
+      </p>
+    </div>
+
+    <footer>
+      Deployed via <code>.github/workflows/static.yml</code> · artifact path <code>docs/</code>
+    </footer>
+  </main>
+</body>
+</html>

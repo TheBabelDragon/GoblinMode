@@ -4,155 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GoblinMode — BabelPipe Lab</title>
-  <meta name="description" content="Adversarial lab for BabelForge: BabelPipe receipts, findings ledger, and sample cases. Pinned to 387d8df." />
+  <meta name="description" content="Adversarial lab for BabelForge: BabelPipe receipts, findings ledger, exact-64 padding report. Pinned to 387d8df." />
   <link rel="canonical" href="https://thebabeldragon.github.io/GoblinMode/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0c0e12;
-      --fg: #e8eaed;
-      --muted: #9aa0a6;
-      --accent: #7ee787;
-      --warn: #d29922;
-      --bad: #f85149;
-      --ok: #3fb950;
-      --border: #30363d;
-      --card: #161b22;
-      --chip: #21262d;
+      --bg: #0c0e12; --fg: #e8eaed; --muted: #9aa0a6; --accent: #7ee787;
+      --warn: #d29922; --bad: #f85149; --ok: #3fb950; --border: #30363d;
+      --card: #161b22; --chip: #21262d;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.55;
-      min-height: 100vh;
+      background: var(--bg); color: var(--fg); line-height: 1.55; min-height: 100vh;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    code, .sha, pre {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.85em;
-    }
-    code, .sha {
-      background: var(--chip);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
-    }
-    header {
-      border-bottom: 1px solid var(--border);
-      background: #0d1117;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .bar {
-      max-width: 56rem;
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      align-items: center;
-    }
+    code, .sha, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
+    code, .sha { background: var(--chip); padding: 0.1em 0.35em; border-radius: 4px; }
+    header { border-bottom: 1px solid var(--border); background: #0d1117; position: sticky; top: 0; z-index: 10; }
+    .bar { max-width: 56rem; margin: 0 auto; padding: 0.75rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; }
     .bar .brand { font-weight: 700; color: var(--fg); letter-spacing: -0.02em; }
-    nav a { color: var(--muted); font-size: 0.9rem; }
+    nav a { color: var(--muted); font-size: 0.9rem; margin-right: 0.85rem; }
     nav a:hover { color: var(--accent); }
-    main {
-      max-width: 56rem;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
-    }
-    h1 {
-      font-size: 1.85rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin: 0 0 0.35rem;
-    }
-    h2 {
-      font-size: 1.15rem;
-      margin: 2.25rem 0 0.75rem;
-      letter-spacing: -0.01em;
-    }
+    main { max-width: 56rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: 1.85rem; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 0.35rem; }
+    h2 { font-size: 1.15rem; margin: 2.25rem 0 0.75rem; letter-spacing: -0.01em; }
     h3 { font-size: 0.95rem; margin: 0 0 0.35rem; }
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      padding: 0.15rem 0.6rem;
-      margin-bottom: 1rem;
-    }
-    .lead { color: var(--muted); margin: 0 0 1.25rem; max-width: 40rem; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
-      gap: 0.85rem;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem 1.1rem;
-    }
+    .tag { display: inline-block; font-size: 0.75rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0.15rem 0.6rem; margin-bottom: 1rem; }
+    .lead { color: var(--muted); margin: 0 0 1.25rem; max-width: 42rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 0.85rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
     .card p { color: var(--muted); margin: 0; font-size: 0.9rem; }
-    .verdict {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border-radius: 4px;
-      padding: 0.12rem 0.4rem;
-      margin-bottom: 0.4rem;
-    }
+    .verdict { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; border-radius: 4px; padding: 0.12rem 0.4rem; margin-bottom: 0.4rem; }
     .v-confirmed { background: #23863633; color: var(--ok); }
     .v-disproven { background: #da363333; color: var(--bad); }
     .v-untested { background: #9e6a0333; color: var(--warn); }
-    .group {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-    .ops {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.75rem 0 0;
-    }
-    .ops span {
-      background: var(--chip);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.2rem 0.5rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.75rem;
-      color: var(--fg);
-    }
-    .map {
-      margin-top: 0.75rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
+    .group { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.25rem; }
+    .ops { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0; }
+    .ops span { background: var(--chip); border: 1px solid var(--border); border-radius: 6px; padding: 0.2rem 0.5rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.75rem; color: var(--fg); }
+    .map { margin-top: 0.75rem; font-size: 0.85rem; color: var(--muted); }
     .map a { margin-right: 0.75rem; }
-    footer {
-      margin-top: 2.75rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-    }
-    .site-path {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
+    footer { margin-top: 2.75rem; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1rem; }
+    .site-path { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+    pre.digest { background: var(--chip); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; overflow-x: auto; color: var(--fg); margin: 0.5rem 0 0; }
   </style>
 </head>
 <body>
@@ -160,6 +57,7 @@
     <div class="bar">
       <a class="brand" href="./">GoblinMode</a>
       <nav>
+        <a href="#exact64">Exact-64</a>
         <a href="#findings">Findings</a>
         <a href="#samples">Samples</a>
         <a href="#ops">Ops</a>
@@ -169,17 +67,34 @@
   </header>
 
   <main>
-    <span class="tag">site · /GoblinMode/</span>
+    <span class="tag">goblin gang · site · /GoblinMode/</span>
     <h1>GoblinMode</h1>
     <p class="lead">
       Adversarial lab for
       <a href="https://github.com/TheBabelDragon/BabelForge">BabelForge</a>
       at <span class="sha">387d8df</span>.
-      BabelPipe records, for every step, what the op <strong>claims</strong> about reversibility,
-      whether the function is actually injective, and whether this run restored prior state.
-      Not a patch to BabelForge.
+      BabelPipe receipts · findings · RTL source defects.
+      Not a patch to BabelForge. Not a break of SHA-256.
     </p>
     <p class="site-path">site::https://thebabeldragon.github.io/GoblinMode/</p>
+
+    <h2 id="exact64">Exact 64-byte padding</h2>
+    <div class="card">
+      <span class="verdict v-confirmed">confirmed · software</span>
+      <span class="verdict v-confirmed">confirmed · RTL source</span>
+      <h3>FIPS needs two blocks; RTL can skip the second</h3>
+      <p>
+        Message length 64 → pad to 128 bytes (msg block + <code>0x80</code>/zeros/length).
+        Software model ≡ hashlib.
+        In <code>sha256_unit.sv</code> <code>S_LOAD</code>, when <code>m_idx==63</code> and <code>byte_last</code>,
+        FSM jumps to <code>S_W0</code> with <code>final_block=1</code> and <strong>never enters <code>S_PAD80</code></strong>.
+      </p>
+      <pre class="digest">a×64 → ffe054fe7ae0cb6dc65c3af9b61d5209f439851db43d0ba5997337df154668eb</pre>
+      <p style="margin-top:0.65rem">
+        Full write-up:
+        <a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/.goblin-lab/EXACT64.md">.goblin-lab/EXACT64.md</a>
+      </p>
+    </div>
 
     <h2 id="findings">Findings ledger</h2>
     <div class="grid" id="findings-grid"></div>
@@ -199,9 +114,8 @@
         <a href="https://github.com/TheBabelDragon/GoblinMode">Repo</a>
         <a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/README.md">README</a>
         <a href="https://github.com/TheBabelDragon/GoblinMode/tree/main/.goblin-lab">.goblin-lab</a>
+        <a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/.goblin-lab/EXACT64.md">EXACT64</a>
         <a href="https://github.com/TheBabelDragon/BabelForge">BabelForge</a>
-        <a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/src/lib/babelpipe/engine.ts">engine.ts</a>
-        <a href="https://github.com/TheBabelDragon/GoblinMode/blob/main/src/lib/babelpipe/receipt-vectors.json">receipt-vectors</a>
       </div>
       <p style="margin-top:0.85rem;margin-bottom:0">
         Pinned SHA: <span class="sha">387d8dfbfe70ac7790e4ca73354aa1fbc6661d95</span>
@@ -213,7 +127,7 @@
       <p>
         SHA-256 is a hash, not a cipher. A receipt is not a signature.
         A transliteration collision is not a hash collision.
-        Hardware schedule notes are source reading + formula transcription, not a simulated netlist and not a break of SHA-256.
+        RTL defects indict the hardware description as written, not the standard.
       </p>
     </div>
 
@@ -224,49 +138,33 @@
 
   <script>
     const FINDINGS = [
-      { id: "not-injective", verdict: "confirmed", title: "English-to-Hebrew is not injective",
-        detail: "X and QS both become קס. Case folds away. C/G, F/P, I/J/Y, and O/U/V/W collapse. ﬁle and file collide. ß becomes SS before the map runs." },
-      { id: "not-a-sha-break", verdict: "disproven", title: "Those collisions are not SHA-256 collisions",
-        detail: "sha256(X) and sha256(QS) differ. The shared digest is the hash of one Hebrew string, produced twice. Hashing is not encryption." },
-      { id: "digraph", verdict: "confirmed", title: "Digraphs are greedy and left to right",
-        detail: "TSH becomes צה (TS, then H). THS becomes תס (TH, then S). Same letters, different cursor, different Hebrew." },
-      { id: "normalize", verdict: "disproven", title: "Normalization is not a free preprocessing step",
-        detail: "é in NFC is passed through as É. The same letter in NFD is E plus an acute, and E becomes ayin. Turkish İ splits under NFD." },
-      { id: "sofit", verdict: "confirmed", title: "Final letters are outside the angelic alphabet",
-        detail: "שלום preserves final mem as unknown. Encoded sum is empty. Gematria ignores it (336 vs 376 for שלומ)." },
-      { id: "pairs", verdict: "confirmed", title: "DECODE does not authenticate the pair",
-        detail: "A forged pair of tav/tav with sum 3 still decodes to aleph. On default tables the 22 sums are unique; the pair is redundant." },
-      { id: "melt", verdict: "disproven", title: "A passing reversibility assert can still be a lie",
+      { verdict: "confirmed", title: "Exact-64 software ≡ hashlib",
+        detail: "len 64 pads to 128 bytes (two blocks). Digest a×64 = ffe054fe…668eb. FIPS padding path in software is correct." },
+      { verdict: "confirmed", title: "RTL skips pad on exact block fill",
+        detail: "S_LOAD: m_idx==63 && byte_last → S_W0 with final_block=1, never S_PAD80. Source defect; not cycle-simmed." },
+      { verdict: "confirmed", title: "English-to-Hebrew is not injective",
+        detail: "X and QS both become קס. Case folds away. Ligatures and ß collapse before the map." },
+      { verdict: "disproven", title: "Those collisions are not SHA-256 collisions",
+        detail: "sha256(X) ≠ sha256(QS). Shared digest is hash of one identical Hebrew string." },
+      { verdict: "confirmed", title: "RTL schedule term is not the FIPS term",
+        detail: "sha256_unit.sv adds W[wi−15] where FIPS wants W[i−16]. Transcription disagrees with hashlib on abc." },
+      { verdict: "disproven", title: "A passing reversibility assert can still be a lie",
         detail: "MELT folds final forms, claims reversible, hides original in a sidecar the receipt does not hash." },
-      { id: "encode-round", verdict: "confirmed", title: "ENCODE on default tables really does round-trip",
-        detail: "DECODE(ENCODE(s)) equals s for oracle tests and seeded fuzz. Property of these tables, not of every op in the DSL." },
-      { id: "sha-model", verdict: "confirmed", title: "Software SHA-256 model matches hashlib",
-        detail: "Empty, abc (NIST), Hebrew hello digest, lengths 0–1000. Agreement with hashlib is an independent check." },
-      { id: "rtl-schedule", verdict: "confirmed", title: "RTL schedule term is not the FIPS term",
-        detail: "sha256_unit.sv adds W[i−15] where FIPS wants W[i−16]. Transcription disagrees with hashlib on abc. Hardware-source defect, not a SHA-256 break." },
-      { id: "rtl-pad", verdict: "untested", title: "Exact 64-byte messages may skip padding",
-        detail: "Reading the state machine: last byte filling the block may skip the extra padding block. Lead, not a verdict." },
-      { id: "receipt", verdict: "confirmed", title: "A receipt proves sameness, not authorship",
-        detail: "Anyone can recompute it. Not a signature, not a MAC. Cannot restore bits a lossy op threw away." },
+      { verdict: "confirmed", title: "A receipt proves sameness, not authorship",
+        detail: "Anyone can recompute it. Not a signature, not a MAC." },
+      { verdict: "confirmed", title: "DECODE does not authenticate the pair",
+        detail: "Forged pair with live sum still decodes. Default sums unique; pair is redundant." },
     ];
 
     const SAMPLES = [
-      { group: "collision", title: "X and QS", blurb: "Different English, identical Hebrew, identical digest of that Hebrew. Not a SHA-256 collision.", program: "TRANSLITERATE → HASH → RECEIPT", input: "X", shadow: "QS" },
-      { group: "pipeline", title: "Hello, round trip", blurb: "Transliterate, encode, prove encode restores, decode, hash Hebrew form.", program: "TRANSLITERATE → ENCODE → ASSERT_REVERSIBLE → DECODE → HASH → RECEIPT", input: "hello" },
-      { group: "collision", title: "Greedy TSH", blurb: "Longest match at cursor. TSH is tsadi + he. THS is tav + samekh.", program: "TRANSLITERATE → RECEIPT", input: "TSH", shadow: "THS" },
-      { group: "collision", title: "Eszett grows", blurb: "Uppercasing ß yields SS before any Hebrew rule runs.", program: "TRANSLITERATE → RECEIPT", input: "ß", shadow: "SS" },
-      { group: "collision", title: "ﬁle and file", blurb: "The ﬁ ligature uppercases to FI. Compatibility lookalikes collide after transliteration.", program: "TRANSLITERATE → RECEIPT", input: "ﬁle", shadow: "file" },
-      { group: "graveyard", title: "Cursed melt", blurb: "MELT claims reversibility and stashes the original in a sidecar the receipt does not hash.", program: "MELT → ASSERT_REVERSIBLE → RECEIPT", input: "שלום" },
-      { group: "collision", title: "אב is ג", blurb: "Plain additive gematria. Aleph + bet is 3, which is also gimel.", program: "GEMATRIA → RECEIPT", input: "אב", shadow: "ג" },
-      { group: "graveyard", title: "Forged pairs", blurb: "DECODE never reads the pair. Forging it still yields aleph.", program: "ENCODE → FORGE_PAIR → ASSERT_REVERSIBLE → DECODE → RECEIPT", input: "א" },
-      { group: "graveyard", title: "Malformed", blurb: "DECODE on plain text is a type error. Pipeline halts; receipt records failure.", program: "DECODE", input: "א" },
+      { group: "collision", title: "X and QS", blurb: "Different English, identical Hebrew. Not a SHA-256 collision.", program: "TRANSLITERATE → HASH → RECEIPT", input: "X", shadow: "QS" },
+      { group: "pipeline", title: "Hello, round trip", blurb: "Encode path that really restores on default tables.", program: "TRANSLITERATE → ENCODE → ASSERT_REVERSIBLE → DECODE → HASH → RECEIPT", input: "hello" },
+      { group: "graveyard", title: "Cursed melt", blurb: "Reversibility assert matches a sidecar, not the function.", program: "MELT → ASSERT_REVERSIBLE → RECEIPT", input: "שלום" },
+      { group: "collision", title: "Greedy TSH", blurb: "Longest match at cursor. TSH ≠ THS in Hebrew.", program: "TRANSLITERATE → RECEIPT", input: "TSH", shadow: "THS" },
+      { group: "graveyard", title: "Forged pairs", blurb: "DECODE never reads the pair names.", program: "ENCODE → FORGE_PAIR → DECODE → RECEIPT", input: "א" },
     ];
 
-    const OPS = [
-      "TRANSLITERATE", "ENCODE", "DECODE", "HASH", "RECEIPT",
-      "ASSERT_REVERSIBLE", "NORMALIZE", "FOLD_SOFIT", "GEMATRIA",
-      "MELT", "FORGE_PAIR"
-    ];
+    const OPS = ["TRANSLITERATE","ENCODE","DECODE","HASH","RECEIPT","ASSERT_REVERSIBLE","NORMALIZE","FOLD_SOFIT","GEMATRIA","MELT","FORGE_PAIR"];
 
     const fg = document.getElementById("findings-grid");
     FINDINGS.forEach(f => {
@@ -286,11 +184,7 @@
     });
 
     const ol = document.getElementById("ops-list");
-    OPS.forEach(op => {
-      const s = document.createElement("span");
-      s.textContent = op;
-      ol.appendChild(s);
-    });
+    OPS.forEach(op => { const s = document.createElement("span"); s.textContent = op; ol.appendChild(s); });
   </script>
 </body>
 </html>

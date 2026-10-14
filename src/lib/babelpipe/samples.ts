@@ -1,0 +1,135 @@
+export type Sample = {
+  id: string
+  group: "pipeline" | "collision" | "graveyard"
+  title: string
+  blurb: string
+  program: string
+  input: string
+  shadow?: string
+}
+
+export const SAMPLES: Sample[] = [
+  {
+    id: "xq",
+    group: "collision",
+    title: "X and QS",
+    blurb: "Different English, identical Hebrew, identical digest of that Hebrew. Not a SHA-256 collision.",
+    program: "TRANSLITERATE\nHASH\nRECEIPT",
+    input: "X",
+    shadow: "QS",
+  },
+  {
+    id: "round",
+    group: "pipeline",
+    title: "Hello, round trip",
+    blurb: "Transliterate, encode, prove the encode step restores, decode, then hash the Hebrew form.",
+    program: "TRANSLITERATE\nENCODE\nASSERT_REVERSIBLE\nDECODE\nHASH\nRECEIPT",
+    input: "hello",
+    shadow: "HELLO",
+  },
+  {
+    id: "digraph",
+    group: "collision",
+    title: "Greedy TSH",
+    blurb: "Longest match wins at the cursor. TSH is tsadi + he. THS is tav + samekh.",
+    program: "TRANSLITERATE\nRECEIPT",
+    input: "TSH",
+    shadow: "THS",
+  },
+  {
+    id: "eszett",
+    group: "collision",
+    title: "Eszett grows",
+    blurb: "Uppercasing ß yields SS before any Hebrew rule runs. One character becomes two.",
+    program: "TRANSLITERATE\nRECEIPT",
+    input: "ß",
+    shadow: "SS",
+  },
+  {
+    id: "ligature",
+    group: "collision",
+    title: "ﬁle and file",
+    blurb: "The ﬁ ligature uppercases to FI. Compatibility lookalikes collide after transliteration.",
+    program: "TRANSLITERATE\nRECEIPT",
+    input: "ﬁle",
+    shadow: "file",
+  },
+  {
+    id: "nfd",
+    group: "graveyard",
+    title: "Accent, two ways",
+    blurb: "NFC é is not in the map, so it passes through. NFD is E plus a mark, and E becomes ayin.",
+    program: "TRANSLITERATE\nRECEIPT",
+    input: "é",
+    shadow: "e\u0301",
+  },
+  {
+    id: "turkish",
+    group: "graveyard",
+    title: "Turkish I",
+    blurb: "İ is not ASCII I, so it passes through. NFD turns it into I plus a dot, and I becomes yod.",
+    program: "NORMALIZE NFD\nTRANSLITERATE\nRECEIPT",
+    input: "İ",
+    shadow: "I\u0307",
+  },
+  {
+    id: "sofit",
+    group: "graveyard",
+    title: "Final mem",
+    blurb: "שלום round-trips, but its final mem is an unknown character. The angelic sum is empty.",
+    program: "ENCODE\nRECEIPT",
+    input: "שלום",
+    shadow: "שלומ",
+  },
+  {
+    id: "fold",
+    group: "pipeline",
+    title: "Fold final forms",
+    blurb: "FOLD_SOFIT maps ם to מ before encode. Honest about being irreversible.",
+    program: "FOLD_SOFIT\nASSERT_REVERSIBLE\nRECEIPT",
+    input: "שלום",
+  },
+  {
+    id: "melt",
+    group: "graveyard",
+    title: "Cursed melt",
+    blurb: "MELT claims reversibility and stashes the original in a sidecar the receipt does not hash.",
+    program: "MELT\nASSERT_REVERSIBLE\nRECEIPT",
+    input: "שלום",
+    shadow: "שלומ",
+  },
+  {
+    id: "gematria",
+    group: "collision",
+    title: "אב is ג",
+    blurb: "Plain additive gematria. Aleph plus bet is 3, which is also gimel. Final mem counts as nothing.",
+    program: "GEMATRIA\nRECEIPT",
+    input: "אב",
+    shadow: "ג",
+  },
+  {
+    id: "forge",
+    group: "graveyard",
+    title: "Forged pairs",
+    blurb: "DECODE never reads the pair. Forging it still yields aleph. The sum was doing all the work.",
+    program: "ENCODE\nFORGE_PAIR\nASSERT_REVERSIBLE\nDECODE\nRECEIPT",
+    input: "א",
+  },
+  {
+    id: "niqqud",
+    group: "pipeline",
+    title: "Vowel point",
+    blurb: "Bet plus dagesh is two code points. Encode transforms the letter and passes the mark through.",
+    program: "ENCODE\nRECEIPT",
+    input: "בּ",
+    shadow: "ב",
+  },
+  {
+    id: "bad",
+    group: "graveyard",
+    title: "Malformed",
+    blurb: "DECODE on plain text is a type error. The pipeline halts and the receipt records the failure.",
+    program: "DECODE",
+    input: "א",
+  },
+]

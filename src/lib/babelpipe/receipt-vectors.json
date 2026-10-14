@@ -1,0 +1,196 @@
+{
+  "cases": [
+    {
+      "name": "empty-hash",
+      "program": "HASH\nRECEIPT",
+      "input": "",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\nstep|ok|no|no|no|cf98413a3a5c6ecf9a96d6e15a52b5ecc7582a60cabff2b5f17295e8a4982746|e5e75f8d01c359ff17bba2f0780bbe06844477ca2d3f316679f7594a701006e6|HASH|sha256 utf-8 of text state; not a signature\nstep|info|na|na|no|cf98413a3a5c6ecf9a96d6e15a52b5ecc7582a60cabff2b5f17295e8a4982746|2621dbed7599f62ff1ba45c5a71d2450ec80aa9b175f48b0fe13a3947d0ee729|RECEIPT|receipt recorded\nfinal cf98413a3a5c6ecf9a96d6e15a52b5ecc7582a60cabff2b5f17295e8a4982746\nhalted 0\n",
+      "preview": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "halted": false
+    },
+    {
+      "name": "hello",
+      "program": "TRANSLITERATE\nENCODE\nASSERT_REVERSIBLE\nDECODE\nHASH\nRECEIPT",
+      "input": "hello",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824\nstep|ok|no|no|no|8f3a3c4d7780575ea535a445d93548e8a97922457b96aec348509b8a798bb34b|c774e340b886db6738f63c6e66e9e7e529b675d9f8e628ea21a835008505410a|TRANSLITERATE|transliterate glyphs=5 digraphs=0 letters=5 expansions=0 passthrough=0\nstep|ok|yes|yes|no|15f5f8b086998813b0d3877b8b939ed60cad8bc54decdb6936ab8cf8646895d7|743cf76e4dc39c28cc3c9c33a5a22b6998782967bf8df3a30d8520aacbefa1a4|ENCODE|encode triples=5 known=5 unknown=0\nstep|ok|na|na|no|15f5f8b086998813b0d3877b8b939ed60cad8bc54decdb6936ab8cf8646895d7|206aa747eb2fd027a8f2fb28138bc5f6b3a352598ed37b2db69bd956a7106022|ASSERT_REVERSIBLE|assert ok via DECODE\nstep|ok|no|no|no|8f3a3c4d7780575ea535a445d93548e8a97922457b96aec348509b8a798bb34b|ef7e91bb5e6678e930741ab16aca24b061d2a26188b549a9f3d252f19513007d|DECODE|decode chars=5\nstep|ok|no|no|no|04a555885c09ba2bc5521a8368c1543890d8541cdf7bdcdc7402dfb2f614ff36|e7374bf1e9acfbfe03aec5af32ac3479a14e93395e4fd62b9274b177b1a2f48d|HASH|sha256 utf-8 of text state; not a signature\nstep|info|na|na|no|04a555885c09ba2bc5521a8368c1543890d8541cdf7bdcdc7402dfb2f614ff36|3ab53b50d4ba8542a23ea6c31866996d0f2ffed24aed597cf379246f806643d8|RECEIPT|receipt recorded\nfinal 04a555885c09ba2bc5521a8368c1543890d8541cdf7bdcdc7402dfb2f614ff36\nhalted 0\n",
+      "preview": "6c47c22e0d41e8d46e3f20068d7c016f5782e56ec49a1ccb119d40e21d2cc766",
+      "halted": false
+    },
+    {
+      "name": "x",
+      "program": "TRANSLITERATE\nHASH\nRECEIPT",
+      "input": "X",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015\nstep|ok|no|no|no|9f783ec5d9bb583f21001b82ff697d305e0fe5bda8085edaecdb23d78a7e8430|a34493b472e388f55509099bdaee96d1ba3cbe184f96eb4115257175c179dcb7|TRANSLITERATE|transliterate glyphs=2 digraphs=0 letters=0 expansions=2 passthrough=0\nstep|ok|no|no|no|7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa|c36697a0917b34a6136013f2034d6ca6b0340a06cd2d85e4e0e799581949c4f5|HASH|sha256 utf-8 of text state; not a signature\nstep|info|na|na|no|7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa|0542df2e2627953081032fd8e4f99dc059a41711ae650c8499991bd876ef207b|RECEIPT|receipt recorded\nfinal 7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa\nhalted 0\n",
+      "preview": "a4a1dc56925bddaf5754b26aebcab107a2202f211a44dd23c416efe640f2f64a",
+      "halted": false
+    },
+    {
+      "name": "qs",
+      "program": "TRANSLITERATE\nHASH\nRECEIPT",
+      "input": "QS",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 02d0c9ca5b0126caa387f9c16bd7e85c02c056a0117835e710d88c697536d2fd\nstep|ok|no|no|no|9f783ec5d9bb583f21001b82ff697d305e0fe5bda8085edaecdb23d78a7e8430|017135585cecb8efbfebc8a5196a4bd253341851d6845241f38e7c8c1bf5770a|TRANSLITERATE|transliterate glyphs=2 digraphs=0 letters=2 expansions=0 passthrough=0\nstep|ok|no|no|no|7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa|8204b543747ccd2362b326e1e723c1fca7a072e95a66862f117c19ab13e8ee44|HASH|sha256 utf-8 of text state; not a signature\nstep|info|na|na|no|7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa|3632d181cb52031ea196aef236d87a9a75b3d20bc2496d8da992bb64b78984d1|RECEIPT|receipt recorded\nfinal 7867f5b3e4b82e923f59abd0dc870439db0e51b2f7615113ce7d46597f5b97aa\nhalted 0\n",
+      "preview": "a4a1dc56925bddaf5754b26aebcab107a2202f211a44dd23c416efe640f2f64a",
+      "halted": false
+    },
+    {
+      "name": "tsh",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "TSH",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 bcfccb8d6434c4f7f519df97b5a413c9e431e2f516caf3e80d6f6520edb5fe23\nstep|ok|no|no|no|d12b65e25654f7f7a5766fb9a0d5b801ee543689e485748eb928c0e4c298c3de|f50d0f0119a0e56c4c7cd6ba6841e0f82e8bdba5b3c15161d883dd2115ce4e56|TRANSLITERATE|transliterate glyphs=2 digraphs=1 letters=1 expansions=0 passthrough=0\nstep|info|na|na|no|d12b65e25654f7f7a5766fb9a0d5b801ee543689e485748eb928c0e4c298c3de|3aa4da41d91a3b8e7692d1fc93f00cc4c593b978e84430cf1a01d38afe7bd9dd|RECEIPT|receipt recorded\nfinal d12b65e25654f7f7a5766fb9a0d5b801ee543689e485748eb928c0e4c298c3de\nhalted 0\n",
+      "preview": "צה",
+      "halted": false
+    },
+    {
+      "name": "ths",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "THS",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 97e9a20e5a5d58224c05b64c6404dd5e8c31503601abd73c38b9fb53363e99af\nstep|ok|no|no|no|433fab1ebd0637c87d31bffac0f6024e2be560f8d1094ecef5368e80ef2f4753|3c5d99616a187f96bc23bcf72157ec9c932c6b65abccd0ebb16ed44dd34bf994|TRANSLITERATE|transliterate glyphs=2 digraphs=1 letters=1 expansions=0 passthrough=0\nstep|info|na|na|no|433fab1ebd0637c87d31bffac0f6024e2be560f8d1094ecef5368e80ef2f4753|e655f9442e085daa0340fbdc300fd18ec7ba889f61c5416b3320e9c9444300df|RECEIPT|receipt recorded\nfinal 433fab1ebd0637c87d31bffac0f6024e2be560f8d1094ecef5368e80ef2f4753\nhalted 0\n",
+      "preview": "תס",
+      "halted": false
+    },
+    {
+      "name": "eszett",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "ß",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 cd3a7e92a9114307055e4a0583acd6549ec3bb6d7c10ecc6ce11ae3d76b3d7db\nstep|ok|no|no|no|f83979c19df1a74015a223fa5facaf19644e1a4ba4c4c811d17edbdfb56e4638|943c688e3da6e9dc9f57d42655e4254280876fd2ca7ead0053b790b4297ed338|TRANSLITERATE|transliterate glyphs=2 digraphs=0 letters=2 expansions=0 passthrough=0\nstep|info|na|na|no|f83979c19df1a74015a223fa5facaf19644e1a4ba4c4c811d17edbdfb56e4638|13aaa04d3b7ed6cdd891861316f3aae0eb5d6ac4e9ae5beb35c3bff4117a062c|RECEIPT|receipt recorded\nfinal f83979c19df1a74015a223fa5facaf19644e1a4ba4c4c811d17edbdfb56e4638\nhalted 0\n",
+      "preview": "סס",
+      "halted": false
+    },
+    {
+      "name": "ligature",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "ﬁle",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 e187bbaaef3ad3a1449313c5dcccb0ea101217cf662f5219e672564a7851b459\nstep|ok|no|no|no|84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09|98b511484c4da9e75f5d6914a95caf0c535932428cf65910d39469f11c49f7ec|TRANSLITERATE|transliterate glyphs=4 digraphs=0 letters=4 expansions=0 passthrough=0\nstep|info|na|na|no|84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09|99d8bc974035b6d547ca362e464a69695f529eada24ee0a9fb8d8c4b9d2275e9|RECEIPT|receipt recorded\nfinal 84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09\nhalted 0\n",
+      "preview": "פילע",
+      "halted": false
+    },
+    {
+      "name": "file",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "file",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 3b9c358f36f0a31b6ad3e14f309c7cf198ac9246e8316f9ce543d5b19ac02b80\nstep|ok|no|no|no|84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09|a055f014ed4e1cc8d7b151a048c7428b8a4008d510ba3d48f29f4a0ede49f898|TRANSLITERATE|transliterate glyphs=4 digraphs=0 letters=4 expansions=0 passthrough=0\nstep|info|na|na|no|84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09|c49974808ea9562d669bfdd27400501ec0db0b13af84db2b6f7a9b5ae454f18f|RECEIPT|receipt recorded\nfinal 84ece0fb2007710316f9b89ed422263d63900d6ed83e06dd64cabd0bbc199c09\nhalted 0\n",
+      "preview": "פילע",
+      "halted": false
+    },
+    {
+      "name": "eacute",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "é",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 4a99557e4033c3539de2eb65472017cad5f9557f7a0625a09f1c3f6e2ba69c4c\nstep|ok|no|no|no|187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d|6a5300008297036aa2349ea475bf15c59abbe5b52bd2b189b19e3429888e64ef|TRANSLITERATE|transliterate glyphs=1 digraphs=0 letters=0 expansions=0 passthrough=1\nstep|info|na|na|no|187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d|b823d91ced9044e959e9c01b7263fa229db60bd7f72360d4fe92bbcda46daed0|RECEIPT|receipt recorded\nfinal 187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d\nhalted 0\n",
+      "preview": "É",
+      "halted": false
+    },
+    {
+      "name": "eacute-nfd",
+      "program": "TRANSLITERATE\nRECEIPT",
+      "input": "é",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 bf12767b0f2a56b2190075bae8169f656e3ce8d6357d4aff184bc6c7ea48f9f6\nstep|ok|no|no|no|71f012fb38a7ae0edefa023e7ba370f470914be7a11c17360f09e87dd1c8eecd|3d2c498eaecd6016e986303a4f7d711228260649b1bfa8da3046c798fd93a7ca|TRANSLITERATE|transliterate glyphs=2 digraphs=0 letters=1 expansions=0 passthrough=1\nstep|info|na|na|no|71f012fb38a7ae0edefa023e7ba370f470914be7a11c17360f09e87dd1c8eecd|0875d7ea9d16504bc48075cec9cce70c1b90099242a2639335b6e7c23f3906fb|RECEIPT|receipt recorded\nfinal 71f012fb38a7ae0edefa023e7ba370f470914be7a11c17360f09e87dd1c8eecd\nhalted 0\n",
+      "preview": "ע́",
+      "halted": false
+    },
+    {
+      "name": "turkish",
+      "program": "NORMALIZE NFD\nTRANSLITERATE\nRECEIPT",
+      "input": "İ",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 a65018cffe8e0ed3f3112a79326e4c9718dc498a1f18a3a72f2f77c792c48b70\nstep|ok|no|no|no|2f36ba7a3bdd7afc3b5409d0e302f2846ff882d6e57d710c70b4cedfb12e21eb|3f792c2ff7be804a8fe197439d39fe678a67696b43baa4c96bb9c7e9b1a9c323|NORMALIZE NFD|normalize NFD\nstep|ok|no|no|no|50569f05657f2ff9921e000531a676f07064a74481cda2081636154ebc741e51|4698292bc7c9b065a7d77966c7db8af5572130ba52b3fef96271dc1ebbdeeba5|TRANSLITERATE|transliterate glyphs=2 digraphs=0 letters=1 expansions=0 passthrough=1\nstep|info|na|na|no|50569f05657f2ff9921e000531a676f07064a74481cda2081636154ebc741e51|57f6d42c4eb3d1f9546d8c37cf790ce3eb2ca2982c1170371e075ab40a777f9e|RECEIPT|receipt recorded\nfinal 50569f05657f2ff9921e000531a676f07064a74481cda2081636154ebc741e51\nhalted 0\n",
+      "preview": "י̇",
+      "halted": false
+    },
+    {
+      "name": "shalom",
+      "program": "ENCODE\nRECEIPT",
+      "input": "שלום",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 b7ac0398ef74193ab738b21df0912329303df10d868c2bac37a84a59d12c0e2f\nstep|ok|yes|yes|no|6e501d670967b7d6f80e10da9f740a571f2a23410936b511599bb44d749d0440|483606c5aede56ba6934a02d49b844d6962630213d0aaa44f8d90725214af9de|ENCODE|encode triples=4 known=3 unknown=1\nstep|info|na|na|no|6e501d670967b7d6f80e10da9f740a571f2a23410936b511599bb44d749d0440|22c362074455efd2b257e6234414f4de4ac9b8d9feb3d4f8ba5381c891e1d0bf|RECEIPT|receipt recorded\nfinal 6e501d670967b7d6f80e10da9f740a571f2a23410936b511599bb44d749d0440\nhalted 0\n",
+      "preview": "שלום",
+      "halted": false
+    },
+    {
+      "name": "fold",
+      "program": "FOLD_SOFIT\nENCODE\nRECEIPT",
+      "input": "שלום",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 b7ac0398ef74193ab738b21df0912329303df10d868c2bac37a84a59d12c0e2f\nstep|ok|no|no|no|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|fb552d0ebb1cc1fb3336dcad72d683e887210a628eff045d930dec78007ea1ef|FOLD_SOFIT|fold sofit changed=1\nstep|ok|yes|yes|no|10065b2189d771e47f53e38df79e6f7936636d3a883d1431ab1fe278f4675028|2588b01600ac30cf744d2042daad97f2291e363549a0b8dd3d7b3cd2589b6b1f|ENCODE|encode triples=4 known=4 unknown=0\nstep|info|na|na|no|10065b2189d771e47f53e38df79e6f7936636d3a883d1431ab1fe278f4675028|c388d32c17889c3c1c613890cd88711312f676b39e9f7ce55871b465351a09ee|RECEIPT|receipt recorded\nfinal 10065b2189d771e47f53e38df79e6f7936636d3a883d1431ab1fe278f4675028\nhalted 0\n",
+      "preview": "שלומ",
+      "halted": false
+    },
+    {
+      "name": "melt",
+      "program": "MELT\nASSERT_REVERSIBLE\nRECEIPT",
+      "input": "שלום",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 b7ac0398ef74193ab738b21df0912329303df10d868c2bac37a84a59d12c0e2f\nstep|ok|yes|no|yes|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|17189f005b1b72415390769bd56a11564b18dbff2feac1d460c20f7904a2bfaa|MELT|melt stripped=0 folded=1; sidecar stashed; not injective\nstep|warn|na|na|yes|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|74c29bf5d8a26a6ec45333edea5c589cba173de9809de3eb83bdd48dad35f9f5|ASSERT_REVERSIBLE|assert matched sidecar only; MELT is not a function of its output\nstep|info|na|na|no|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|124b7f2fcb8859533c2783e51613c5919ced4fbc3df214c20db964444cc89036|RECEIPT|receipt recorded\nfinal 64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84\nhalted 0\n",
+      "preview": "שלומ",
+      "halted": false
+    },
+    {
+      "name": "melt-medial",
+      "program": "MELT\nASSERT_REVERSIBLE\nRECEIPT",
+      "input": "שלומ",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 383b59f0c46b70f649b12faa3396e2b2c7305c6daeb8d135cd066777e2edeb4a\nstep|ok|yes|no|yes|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|2f3ddf134245d35f1dfe6eea9fb90e503e9c313f02531f77616281287edde6e0|MELT|melt stripped=0 folded=0; sidecar stashed; not injective\nstep|warn|na|na|yes|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|a6ec082a17d8b14c7a382cbb095b5140e3f997905fdd0389a9acebe62046e2b8|ASSERT_REVERSIBLE|assert matched sidecar only; MELT is not a function of its output\nstep|info|na|na|no|64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84|6a777ba83e1d45fb2aa5663f5addc4ff00c7738eca67851645d84b35d0b22642|RECEIPT|receipt recorded\nfinal 64f0a925eed99e58e73b499bb3f88e4b2eefaa224132c0c254d0bc0899370c84\nhalted 0\n",
+      "preview": "שלומ",
+      "halted": false
+    },
+    {
+      "name": "gematria-ab",
+      "program": "GEMATRIA\nRECEIPT",
+      "input": "אב",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 cf7ad5d93148f62ef46ce18b42b7c2303579d6b508b54f75e1ac445e1d9a9e1b\nstep|ok|no|no|no|6a396e6f673d2079809845dfeda366f61cfe1381ebff94f1c5df7d3252aae6a1|8af97d68ae4c4ff483e109b985b488d82aa24f786c46bf8ce8cf3015a19d10b8|GEMATRIA|gematria total=3 unknown=0 א=1+ב=2\nstep|info|na|na|no|6a396e6f673d2079809845dfeda366f61cfe1381ebff94f1c5df7d3252aae6a1|bbdbe46aa744c3b723d7a60a6fe2cc128ef89b25c00ac1897e75ccfcb00b7460|RECEIPT|receipt recorded\nfinal 6a396e6f673d2079809845dfeda366f61cfe1381ebff94f1c5df7d3252aae6a1\nhalted 0\n",
+      "preview": "3 א=1+ב=2",
+      "halted": false
+    },
+    {
+      "name": "gematria-g",
+      "program": "GEMATRIA\nRECEIPT",
+      "input": "ג",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 93ac3bdd7235b58b15c4929eadc16e8137c60ba613fd252ed7fb265689ec80af\nstep|ok|no|no|no|ddef20af9fac9e25e85e7aef3cf2c34ef0ac5a30d3c4033805ffaedac4314654|2cf1023d72c68969d6da7eb144e43093e8cb7141e6d0886fc338826173741694|GEMATRIA|gematria total=3 unknown=0 ג=3\nstep|info|na|na|no|ddef20af9fac9e25e85e7aef3cf2c34ef0ac5a30d3c4033805ffaedac4314654|360c6eaa48fbead8bb7ff19950f495a3507040951f87bafddc41dbed79668b84|RECEIPT|receipt recorded\nfinal ddef20af9fac9e25e85e7aef3cf2c34ef0ac5a30d3c4033805ffaedac4314654\nhalted 0\n",
+      "preview": "3 ג=3",
+      "halted": false
+    },
+    {
+      "name": "forge",
+      "program": "ENCODE\nFORGE_PAIR\nASSERT_REVERSIBLE\nDECODE\nRECEIPT",
+      "input": "א",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 defba94d071a3373c27b4b15959db14a670a73a24b5fb6982c8005c912d48f42\nstep|ok|yes|yes|no|5461de1fefb3539d3052708e732e0560de4ab503f2d7149b318075f358588963|5ee3e7e9d342ab065e87e6d5d359f6b5d0337ca91dda4fe5d8616b7c3a9baf03|ENCODE|encode triples=1 known=1 unknown=0\nstep|ok|yes|no|no|58c641863684649e16be8f21d2d79fdb18205462d0149556f27be5ec8aa4f5c2|619b2bd70e0b3de775d394a8fce81a38548d39a1e1fc7aec7e35eefd7bb24caf|FORGE_PAIR|forge pairs replaced=1; sums kept; pairs are not authenticated by DECODE\nstep|warn|na|na|no|58c641863684649e16be8f21d2d79fdb18205462d0149556f27be5ec8aa4f5c2|953bb4622a3fd504b6fcbb21f2c41c78d808ac0590e45361e34663bda232e4ef|ASSERT_REVERSIBLE|assert restored this input via sum redundancy; FORGE_PAIR is not injective\nstep|ok|no|no|no|9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9|b08f35eef9cb1f492c7df19b76ef6c2c6a0016bc0bbbdb2a0bd522a0714a5d8f|DECODE|decode chars=1\nstep|info|na|na|no|9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9|b4e803599d300a7cfd7b70e9a9e0ee3a0ae63b7f4e831438c509f396035ad359|RECEIPT|receipt recorded\nfinal 9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9\nhalted 0\n",
+      "preview": "א",
+      "halted": false
+    },
+    {
+      "name": "niqqud",
+      "program": "ENCODE\nRECEIPT",
+      "input": "בּ",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 f151aa4f84adf8c30d6ff6a04dabc127357e3bacb393f904b70ac115c2e359b5\nstep|ok|yes|yes|no|02f9e3edd4b728b55e75e6176611cd6c3179e5fa4f1713185160e7d81e4a9e30|1d2efc2dcdd5454740987bbd1f4f22794ceb650f41e63b0e881bfb46fb566da7|ENCODE|encode triples=2 known=1 unknown=1\nstep|info|na|na|no|02f9e3edd4b728b55e75e6176611cd6c3179e5fa4f1713185160e7d81e4a9e30|8c8794ceea12333777f8977d1426a76c683485431547434f4f7932759734e2e5|RECEIPT|receipt recorded\nfinal 02f9e3edd4b728b55e75e6176611cd6c3179e5fa4f1713185160e7d81e4a9e30\nhalted 0\n",
+      "preview": "בּ",
+      "halted": false
+    },
+    {
+      "name": "strip",
+      "program": "STRIP_MARKS\nENCODE\nRECEIPT",
+      "input": "בּ",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 f151aa4f84adf8c30d6ff6a04dabc127357e3bacb393f904b70ac115c2e359b5\nstep|ok|no|no|no|c0da7db843c92684619fde0d04d588d1a0b6c676d212c1d28f97df4e1a61b6a3|7a36fd5eccac992832134b3311a6ff26bc1ed4c548e80b68fe5acda35078fd7c|STRIP_MARKS|strip marks removed=1\nstep|ok|yes|yes|no|91fc7aebdf3dc9281055f9ddbb696631813b533980a03723a9a253301e6031e8|f19e673a17819f14049a2d42275c6fb3527bd03170efa3d32306d694442c5edc|ENCODE|encode triples=1 known=1 unknown=0\nstep|info|na|na|no|91fc7aebdf3dc9281055f9ddbb696631813b533980a03723a9a253301e6031e8|21d97973b31ab7ea6a1686126fc3bdd48a5309254c13d7743e29bae2d41e9669|RECEIPT|receipt recorded\nfinal 91fc7aebdf3dc9281055f9ddbb696631813b533980a03723a9a253301e6031e8\nhalted 0\n",
+      "preview": "ב",
+      "halted": false
+    },
+    {
+      "name": "malformed",
+      "program": "DECODE",
+      "input": "א",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 defba94d071a3373c27b4b15959db14a670a73a24b5fb6982c8005c912d48f42\nstep|fail|no|no|no|9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9|7f6a621898c12bb432b228c60a62f34296efd212066fe13edc0b8c3cda35f1b2|DECODE|DECODE expects encoded state, found text\nfinal 9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9\nhalted 1\n",
+      "preview": "א",
+      "halted": true
+    },
+    {
+      "name": "empty-program",
+      "program": "  \n# c\n",
+      "input": "א",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 defba94d071a3373c27b4b15959db14a670a73a24b5fb6982c8005c912d48f42\nstep|fail|na|na|no|9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9|bd4b4211a24d7510468bcec6bca235d0d4e3be747fd8c8bad758863e0e3ab299|PARSE|parse error: program has no operations\nfinal 9f82f7f251d601de13eb2ad4a66be7ee8a642d61c85c6fa8a57d18de6e3600f9\nhalted 1\n",
+      "preview": "א",
+      "halted": true
+    },
+    {
+      "name": "nfc",
+      "program": "NORMALIZE NFC\nTRANSLITERATE\nRECEIPT",
+      "input": "é",
+      "receipt": "babelpipe/0.1.0\nbaseline 387d8dfbfe70ac7790e4ca73354aa1fbc6661d95\ninput_sha256 4a99557e4033c3539de2eb65472017cad5f9557f7a0625a09f1c3f6e2ba69c4c\nstep|ok|no|no|no|23b4453d6ee217d8942a8cbf0be660a3dbd55faef7c5558f87813c439c5cb6bc|3584f21585e8075b04ab961d5a61992653ef35c63015f51cc59aafe642e9c646|NORMALIZE NFC|normalize NFC\nstep|ok|no|no|no|187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d|6e78b1a5f4987d0c18f24743ad8133178f015e7682e353ab4cda42f2d36a1db8|TRANSLITERATE|transliterate glyphs=1 digraphs=0 letters=0 expansions=0 passthrough=1\nstep|info|na|na|no|187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d|9cf6fea7beb2f627dfe667984b5d59fe5de67ff2d8c2f13547d52aeb1bd939f5|RECEIPT|receipt recorded\nfinal 187768e85a472e9c6c3f6a3365bc6de93ee44413c6827d033dda53a91dfa199d\nhalted 0\n",
+      "preview": "É",
+      "halted": false
+    }
+  ]
+}

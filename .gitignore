@@ -1,0 +1,16 @@
+node_modules/
+.grok/
+.tanstack/
+dist/
+.output/
+.vercel/
+.nitro/
+artifacts/
+*.pyc
+__pycache__/
+.node_modules.lock
+.node_modules.tmp*/
+
+# Upstream checkout. Clone BabelForge at 387d8df beside the experiment;
+# do not vendor it into this repo.
+.goblin-lab/BabelForge/
